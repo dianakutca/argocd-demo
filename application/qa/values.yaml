@@ -4,6 +4,12 @@ service:
   type: ClusterIP
   port: 80
 
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""  
+  
 ingress:
   enabled: true
   className: "nginx"
