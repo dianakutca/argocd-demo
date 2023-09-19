@@ -1,0 +1,28 @@
+replicaCount: 3
+
+service:
+  type: ClusterIP
+  port: 80
+
+# image:
+#   repository: nginx
+#   pullPolicy: IfNotPresent
+#   # Overrides the image tag whose default is the chart appVersion.
+#   tag: ""  
+  
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: 
+    ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
+    acme.cert-manager.io/http01-edit-in-place: "true"
+  hosts:
+    - host: artemis-stage.treenetsolution.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: 
+   - secretName: artemis-tls
+     hosts:
+       - artemis-stage.treenetsolution.com
