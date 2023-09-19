@@ -48,8 +48,7 @@ spec:
               path: /
               port: http
             initialDelaySeconds: 15
-            periodSeconds: 10
-            
+            periodSeconds: 10        
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
