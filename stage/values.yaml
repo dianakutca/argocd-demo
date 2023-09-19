@@ -1,14 +1,15 @@
 replicaCount: 3
 
+
+image:
+  repository: us-central1-docker.pkg.dev/terraform-project-diana-396721/artemis
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "10.0.0" 
+  
 service:
   type: ClusterIP
   port: 80
-
-# image:
-#   repository: nginx
-#   pullPolicy: IfNotPresent
-#   # Overrides the image tag whose default is the chart appVersion.
-#   tag: ""  
   
 ingress:
   enabled: true
