@@ -8,11 +8,11 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     acme.cert-manager.io/http01-edit-in-place: "true"
   hosts:
-    - host: artemis-stage.treenetsolution.com
+    - host: cert-manager-test.treenetsolution.com
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls: 
    - secretName: artemis-tls
      hosts:
-       - artemis-stage.treenetsolution.com
+       - cert-manager-test.treenetsolution.com
